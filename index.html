@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do List</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-app">
+        
+        <div class="title" style="display: flex">
+          <h2>Add user Students</h2>
+          <h2 id="date"></h2>
+          <div class="alarm-clock"> 
+            <!-- Date -->
+            <div class="date">
+              <span class="month"></span>
+              <span class="day"></span>
+              <span class="year"></span>
+            </div>
+  
+            <!-- Time -->
+            <div class="time">
+              <span class="hours"></span>
+              <span class="colon">:</span>
+              <span class="minutes"></span>
+              <span class="colon">:</span>
+              <span class="seconds"></span>
+            </div>
+          </div>
+      
+  <script type="text/javascript">
+  const hours = document.querySelector('.hours');
+  const minutes = document.querySelector('.minutes');
+  const seconds = document.querySelector('.seconds');
+  const month = document.querySelector('.month');
+  const day = document.querySelector('.day');
+  const year = document.querySelector('.year');
+  
+  function setdate() {
+      const now = new Date();
+      const mm = now.getMonth();
+      const dd = now.getDate();
+      const yyyy = now.getFullYear();
+  
+      const secs = now.getSeconds();
+      const mins = now.getMinutes();
+      const hrs = now.getHours();
+  
+        
+      const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'];
+      if(hrs < 10){
+          hours.innerHTML ='0' + hrs;
+      } else {
+          hours.innerHTML = hrs;
+      }
+  
+      if(mins < 10){
+          minutes.innerHTML ='0' + mins;
+      } else {
+          minutes.innerHTML = mins;
+      }
+  
+      if(secs < 10){
+          seconds.innerHTML ='0' + secs;
+      } else {
+          seconds.innerHTML = secs;
+      }
+  
+      month.innerHTML = monthName[mm];
+      day.innerHTML = dd;
+      year.innerHTML = yyyy;
+  }
+  setInterval(setdate, 1000);
+      </script>
+          <!-- <img
+            src="./images/icon.png"
+            alt="icon"
+            style="width: 20px; height: 20px"
+          /> -->
+        </div>
+        <div class="row">
+          <input type="text" class="input-box name" placeholder="Name" />
+          <button onclick="addTask()">Add</button>
+        </div>
+        <div class="row">
+          <input type="text" class="input-box address" placeholder="address" />
+        </div>
+        <div class="row">
+          <input type="text" class="input-box age" placeholder="age" />
+        </div>
+        <div class="row">
+          <input type="text" class="input-box fee" placeholder="fee" />
+        </div>
+        <ul id="list-container">
+          <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+        </ul>
+      </div>
+    </div>
+    <script src="main.js"></script>
+    
+  </body>
+</html>
