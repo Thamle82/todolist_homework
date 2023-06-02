@@ -41,8 +41,10 @@
 const inputName = document.querySelector(".name");
 const inputAddress = document.querySelector(".address");
 const inputAge = document.querySelector(".age");
-const inputFee = document.getElementById(".fee");
+const inputFee = document.querySelector(".fee");
+
 const listContainer = document.getElementById("list-container");
+const cost = document.querySelector(".cost");
 
 
 const arrayUser = [
@@ -64,26 +66,29 @@ const arrayUser = [
     age: 27,
     fee: 0
   },
-  // {
-  //   name: "via",
-  //   address: "an",
-  //   age: 27,
-  //   fee: 0
-  // },
- 
 ];
 
 // =====Init=====
 clearList();
 renderUser(arrayUser);
+renderCost(arrayUser);
+
+
 
 var userStudent = function (name, address, age, fee) {
   this.name = name;
   this.address = address;
   this.age = age;
   this.fee = fee;
-   
 };
+
+function renderCost ( array) {
+  let costTotal = 0;
+  array.forEach((e) => {
+    costTotal += parseInt(e.fee);
+  })
+  cost.innerHTML = `Cost: ${costTotal}`;
+}
 
 function clearList() {
   listContainer.innerHTML = "";
@@ -95,6 +100,7 @@ function resetInput() {
   inputAge.value = "";
   inputFee.value = "";
 }
+
 
 function renderUser(array) {
   array.forEach((e) => {
@@ -128,6 +134,7 @@ function addTask() {
   }
   clearList();
   renderUser(arrayUser);
+  renderCost(arrayUser);
   resetInput();
 }
 
@@ -149,6 +156,7 @@ listContainer.addEventListener("click", function (e) {
     });
     clearList();
     renderUser(arrayUser);
+    renderCost(arrayUser);
   }
 });
 

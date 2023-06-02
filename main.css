@@ -33,6 +33,18 @@
     font-size: 35px;
     font-family: "Orbitron", sans-serif;
 }
+.cost {
+    position: relative;
+    padding: 2px;
+    /* backdrop-filter: blur(4px); */
+    height: 80px;
+    width: 150px;
+    background: rgba(240, 84, 92, 0.767);
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+
+}
 .todo-app {
     width: 100%;
     max-width: 540px;
